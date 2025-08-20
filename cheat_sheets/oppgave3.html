@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+
+    <script>
+        let fatherAge = 37;
+        let motherAge = 32;
+        let daughterAge = 7;
+        let sonAge = 2;
+
+        const averageAge = (fatherAge + motherAge + daughterAge + sonAge) / 4;
+
+        document.getElementById("utskrift").innerHTML = "Average age: " + averageAge;
+    </script>
+
+</body>
+</html>
