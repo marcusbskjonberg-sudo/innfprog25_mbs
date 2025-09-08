@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays Øving</title>
+</head>
+<body>
+    
+    <h1>Ansatte</h1>
+    <ul id="studentutskrift"></ul>
+
+    <script>
+
+        const studentliste = [
+            {navn: "Geir",
+            alder: 25,
+            student: true
+            },
+            {navn: "Are",
+            alder: 23,
+            student: true
+            },
+            {navn: "Anna",
+            alder: 29,
+            student: false
+            },
+            {navn: "Ivar",
+            alder: 12,
+            student: false
+            },
+        ]
+
+        const studentprint = document.getElementById("studentutskrift")
+
+        const studentmap = studentliste.map(student => 
+            `<h3>${student.navn}</h3>
+            <li><p>${student.alder} år</p>
+                <li><p>Er student: ${student.student ? "Ja" : "Nei"}
+                `
+        )
+
+        studentprint.innerHTML = studentmap.join(``)
+    </script>
+</body>
+</html>

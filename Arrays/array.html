@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    
+<p id ="stringPrint"></p>
+<p id ="joinPrint"></p>
+
+
+<script>
+
+    //Arrays
+    //Lister, samlinger av data
+    //Hvert element har en index, som starter på 0
+    //Kan inneholde forskjellige datatyper
+
+    const handleliste = ["Middag", "Brød", "Melk", "Egg", "Bacon"]
+
+
+    const produkter = [
+        {
+            id: 1, 
+            name: "Pokemon",
+            year: 1995,
+        },
+        {
+            id: 2,
+            name: "Valheim",
+            year: 2021,
+        },
+        {   id: 3,
+            name: "Red Dead Redemption 2",
+            year: 2018,
+        }
+    ]
+
+    //Lengde på en array
+    //eksempel på .length
+    const listelengde = produkter.length
+
+    console.log("Antall varer i produktlisten:" + listelengde)
+
+    //.map() - løper gjennom alle elementene i en array
+    //for hvert element i arrayen, gjør noe
+    produkter.map( (produkt) => {
+        console.log(produkt.name)
+    } )
+
+    //Konverterer en array til en string, stringprint vil- 
+    //-separere med komma mens joinprint vil separere med " - " eller hva du ønsker
+    //eksempel på .toString() og .join()
+
+    handleliste.push("Kylling") //legger til et element på slutten av arrayen
+    handleliste.pop() //fjerner siste element i arrayen
+document.getElementById("stringPrint").innerHTML = handleliste.toString();
+document.getElementById("joinPrint").innerHTML = handleliste.join(" - ");
+
+
+handleliste.unshift("Smør") //legger til et element i starten av arrayen
+handleliste.shift() //fjerner første element i arrayen
+
+handleliste.splice(2, 0, "Ost", "Skinke") //legger til elementer på en spesifikk plass i arrayen
+
+handleliste.splice(2,2) //fjerner 2 elementer fra og med index 2
+
+console.log(handleliste)
+
+const beggelister = [...handleliste, ...produkter] //slår sammen to lister (fungerer også med objekter)
+
+console.log(beggelister) //skriver ut dem sammenslåtte listene i konsollen
+
+
+
+
+const animals = ["Horse", "Cow", "Cat", "Dog"]
+
+//.splice(): Function to manipulate array
+
+//.splice()-parameters: index, delete, value
+
+const spliceParams = [2, 0, "Sheep"]
+
+//Running splice on array with parameters from spliceParams
+animals.splice(...spliceParams)
+
+animals.sort() //sorts the array alphabetically
+
+
+
+console.log(animals)
+
+</script>    
+</body>
+</html>

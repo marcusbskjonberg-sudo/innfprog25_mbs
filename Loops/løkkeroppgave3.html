@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="animals"></ul>
+
+    <script>
+        const animals = ["Katt", "Hund", "Skilpadde", "Hest", "Pinnsvin", "Påfugl", "Blåhval", "Slange", "Frosk", "Pikachu", "Kangaroo"]
+        
+        let htmlString = ""
+        let animalslengde = animals.length
+
+        for(let teller = 0; teller < animals.length; teller++){
+            htmlString += `<li>${animals[teller]}</li>`
+        }
+
+        htmlString += `<li>jupp</li>`
+
+        document.getElementById("animals").innerHTML = htmlString
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays - cheat sheet</title>
+</head>
+<body>
+
+    <p id="profiles"></p>
+    
+
+    <script>
+        const lecturers = [
+        {
+            name: "Marius Akerbæk",
+            office: "D1-016",
+            email: "toremake@hiof.no",
+            birthyear: 1983,
+        },
+        {
+            name: "Daniela Blauhut",
+            office: "D1-015",
+            email: "danielb@hiof.no",
+            birthyear: 1977,
+        },
+        {
+            name: "Ann-Charlott Karlsen",
+            office: "D1-062",
+            email: "ackarlsen@hiof.no",
+            birthyear: 1992,
+        },
+        {
+            name: "Ole Edvard Ørebæk",
+            office: "D1-061A",
+            email: "oledvo@hiof.no",
+            birthyear: 1993,
+        },
+        {
+            name: "Thor Andreas Holberg Murtnes-Hatlestad",
+            office: "Hjemmekontor",
+            email: "thoraho@hiof.no",
+            birthyear: 1993,
+        }
+
+        ]
+
+
+        //Lager en variabel av <p> taggen med IDen "Profiles" og gjør det mulig å endre på skriften
+        //gjennom kode.
+        let profiles = document.getElementById("profiles")
+        
+    //    lecturers.map(lecturer => { //Lager en map over arrayen "Lecturers", deler opp arrayen og bruker hvert element til å skrive ut informasjon på siden.
+    //        profiles.innerHTML += `<li>
+    //            <h3>${lecturer.name}</h3>
+    //            <span>${2025 - lecturer.birthyear}</span>
+    //            <p>Kontor: ${lecturer.office}</p>
+    //            <a href="mailto:${lecturer.email}">Skriv epost til ${lecturer.name}</a> 
+    //            </li>`
+     //       console.log(lecturer)
+    //    })
+
+    //Lager en map over arrayen "Lecturers" og filtrerer ut "lecturers" født før 1990
+                lecturers.filter(lec => lec.birthyear >= 1990).map(lec => {
+                profiles.innerHTML += `<li>
+                <h3>${lec.name}</h3>
+                <span>${2025 - lec.birthyear}</span>
+                <p>Kontor: ${lec.office}</p>
+                <a href="mailto:${lec.email}">Skriv epost til ${lec.name}</a> 
+                </li>`
+        })
+        
+    </script>
+</body>
+</html>

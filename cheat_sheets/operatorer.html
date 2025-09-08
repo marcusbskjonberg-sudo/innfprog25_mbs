@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1 id="utskrift"></h1>
+
+    <script>
+
+        const alder = 26;
+        const melding = "ingenting";
+
+        //om alderen er mindre enn 18
+        if(alder < 18) {console.log("Du er ikke myndig"); 
+        melding = "Du er ikke myndig" 
+        }
+
+        //om alderen er 62 eller mer
+        else if(alder >= 62) {console.log("Du er pensjonist");
+        melding = "Du er pensjonist" 
+        }
+
+        //om alderen ikke er mindre enn 18 eller mer enn 62
+        //else trenger ikke paranteser siden den trenger ikke en kondisjon
+        else {console.log("Du er klar for studier eller arbeidslivet!");
+        melding = "Du er klar for studier eller arbeidslivet!" 
+        }
+        // == operatorer
+        // > mer enn, < mindre enn,  >= mer eller samme som, 
+        //  <= mindre eller samme som, ===/== lik/og lik datatype,
+        //  !==/!= ikke lik
+        //|| = ELLER -  && = OG
+
+        document.getElementById("utskrift").textContent = melding;
+
+    </script>
+</body>
+</html>
