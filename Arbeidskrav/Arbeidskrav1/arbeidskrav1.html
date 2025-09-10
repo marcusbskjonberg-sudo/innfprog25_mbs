@@ -35,7 +35,8 @@
         </p>
     </footer>
 
-    <scripttt>
+    <!-- feil 1 <scripttt>-->
+    <script> 
         //Variabel with company name
         const company = "Programmeriet"
 
@@ -47,6 +48,7 @@
         ]
 
         //Secret keys to access url and images
+        //feil 2 "images_folder = "img  skal være img1 med lukkende "
         let images_folder = "img
         let secret_key = 0
         let ak_key
@@ -59,7 +61,7 @@
             ak_key = secret_key + 1
         }
         const safe_images_folder = images_folder += ak_key
-        console.logg("Image folder: " + safe_images_folder)
+        console.logg("Image folder: " + safe_images_folder)  //feil 3 console.logg
 
         let HTML_employees = ""
 
@@ -72,7 +74,7 @@
                     <p>${e.email}</p>
                 </article>`)
 
-                document.getElementbyId("employee_list").innerHTML = HTML_employeeees
+                document.getElementbyId("employee_list").innerHTML = HTML_employeeees //feil 4/6 HTML_employeeees
         }
 
         //System prints
