@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="elever"></ul>
+
+    <script>
+
+        const elevliste = [
+            {navn: "Ørjan",
+            alder: 25
+            },
+            {navn: "Geir",
+            alder: 26
+            },
+            {navn: "Kjetil",
+            alder: 17
+            },
+            {navn: "Kevin",
+            alder: 22
+            },
+        ]
+
+            const matliste = ["Ost", "Eple", "Geir"]
+
+          if (elevliste.some(elev => elev.navn === "Ørjan")) {
+            elevliste.push({navn: "Geirsanns", alder: 39})}
+
+        const elever20 = elevliste.filter(elev => elev.alder > 20)
+
+        console.log(elever20)
+
+       
+
+        
+
+        document.getElementById("elever").innerHTML = elever20.map(elev => `<li>${elev.navn}</li>${elev.alder} år`).join(``)
+    </script>
+
+</body>
+</html>

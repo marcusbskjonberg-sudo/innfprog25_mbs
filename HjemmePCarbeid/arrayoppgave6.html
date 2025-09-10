@@ -66,7 +66,16 @@ const games = [
 
 const iosgames = games.filter(game => game.platforms.includes("iOS"))
 
-document.getElementById("filter").innerHTML = iosgames.map(game => `<li>${game.title}</li>`).join(``)
+document.getElementById("filter").innerHTML = iosgames.map(game => `<li>${game.title}</li>`).join(`<br>`)
+
+if (iosgames.some(game => game.title.includes("Woordle"))) 
+{console.log("Woordle!"), console.log("yo")}
+else console.log("nope")
+  
+  
+
+
+
 
 
 
