@@ -35,7 +35,7 @@
         </p>
     </footer>
 
-    <scripttt>
+    <script> //Feil 1 - script taggen var feilskrevet, mest åpenbare feilen siden dette gjør at koden blir til HTML og vises på nettsiden
         //Variabel with company name
         const company = "Programmeriet"
 
@@ -47,19 +47,19 @@
         ]
 
         //Secret keys to access url and images
-        let images_folder = "img
+        let images_folder = "img" //feil 2 images_folder = "img , glemt en avsluttende " bak img 
         let secret_key = 0
         let ak_key
         
         //Turn on or off safeguard to allow system to run
-        const safeguard = false
+        const safeguard = true  //Feil 3: satt safeguard til true så koden fungerer. Safeguard gjør at imagesfolder blir linket til img1 i stedet for img og vil derfor kunne hente bildene og oppfyller også betingelsen om å kjøre koden på linje 67
         
         //Control of safeguard to create image folder name
         if(safeguard === true) {
             ak_key = secret_key + 1
         }
         const safe_images_folder = images_folder += ak_key
-        console.logg("Image folder: " + safe_images_folder)
+        console.log("Image folder: " + safe_images_folder)  //Feil 4: console.logg var skrevet feil. Endet til console.log
 
         let HTML_employees = ""
 
@@ -72,7 +72,8 @@
                     <p>${e.email}</p>
                 </article>`)
 
-                document.getElementbyId("employee_list").innerHTML = HTML_employeeees
+                document.getElementById("employee_list").innerHTML = HTML_employees //Feil 5: HTML_employeeees var skrevet feil. Endret til HTML_employees, skrivefeil
+                //Feil 6: En irriterende feil som tok litt tid for meg å finne sammenlignet med de andre feilene, men er ganske åpenbart nå i etterkant: getElementById hadde en liten bokstav på b som gjorde at koden ikke funket
         }
 
         //System prints
