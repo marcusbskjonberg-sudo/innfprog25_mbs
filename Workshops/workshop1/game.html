@@ -78,13 +78,13 @@
         //TODO: config
 
         const gameConfig = {
-            player: "Mariussss",
+            playerName: "Mariussss",
             energy: 3,
             points: 2,
             duration: 7
         }
         
-        document.getElementById("playerName").innerHTML = gameConfig.player
+    
         //    spillernavn (player) antall energidrikker vi har (energy) antall poeng vi har samlet (points) hvor lenge vi har spilt (duration)
        
         //TODO: notebook
@@ -97,14 +97,27 @@
         }
         //TODO: print playerinfo to HTML
         
-        document.getElementById("variabler").innerHTML = notebook.variables
-        document.getElementById("arrayer").innerHTML = notebook.arrays
-        document.getElementById("løkker").innerHTML = notebook.loops
-        document.getElementById("funksjoner").innerHTML = notebook.functions
+         function updateStaticUI() {
+            
+            if(gameConfig.playerName === "") {
+                document.getElementById("playerName").innerHTML = "Waiting for player..."
+            } else {
+                document.getElementById("playerName").innerHTML = gameConfig.playerName
+            }
+            document.getElementById("energy").innerHTML = gameConfig.energy
+            document.getElementById("points").innerHTML = gameConfig.points
+            document.getElementById("duration").innerHTML = gameConfig.duration
+            
+            //TODO: print notebook info to HTML
+            document.getElementById("variabler").innerHTML = notebook.variables
+            document.getElementById("løkker").innerHTML = notebook.loops
+            document.getElementById("funksjoner").innerHTML = notebook.functions
+            document.getElementById("arrayer").innerHTML = notebook.arrays
+        }
+      
 
-        //TODO: print notebook info to HTML
-
-        //(BONUS) TODO: function for all prints
+        updateStaticUI()
+      
         
     </script>
 </body>
