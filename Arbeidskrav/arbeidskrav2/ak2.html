@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Arbeidskrav 2</h1>
+    <p>Denne nettsiden skal ha noen ulike funksjoner, som beskrevet i <a href="https://hiof.instructure.com/courses/9942/assignments/46701" target="_blank">oppgaveteksten i canvas.</a></p>
+    <h2>Problem 1</h2>
+    <p>Tilfeldig hexadesimal fargekode: <span id="random_color"></span></p>
+    <h2>Problem 2</h2>
+    <p>Finnes ordet "betingelse" i Programmeringsord-arrayen? <span id="betingelse_sjekk"></span></p>
+    <p>Finnes ordet "algoritme" i Programmeringsord-arrayen? <span id="algoritme_sjekk"></span></p>
+    <p>Finnes ordet "problemløsning" i Programmeringsord-arrayen? <span id="problemlosning_sjekk"></span></p>
+    <h2>Problem 3</h2>
+    <p>Gjennomsnittet av tallene i tall_array_en er <span id="avg_array_one"></span></p>
+    <p>Gjennomsnittet av tallene i tall_array_to er <span id="avg_array_two"></span></p> 
+
+    <script>
+        //PROBLEM 1
+        const hexadecimal_characters = "ABCDEF1234567890"
+        const hexadecimal_characters_array = Array.from(hexadecimal_characters)
+        let random_color_code = "#"
+        
+        //Din kode for å løse problem 1 her.
+
+            // let Number2 = Math.floor((Math.random() * 15) + 1); -- bruker denne linjen med kode som utgangspunkt for å lage funksjonen -- ble hintet som viktig for arbeidskrav 2 av foreleser
+            
+            // console.log(hexadecimal_characters, hexadecimal_characters_array)
+            
+  const htmlutskrift = document.getElementById("random_color")  //Kobler til html elementet for å kunne endre på det med javascript
+
+        function HexaDecimal(){
+            let utskrift = `#`  //variabel for å samle de tilfeldig valgte tegnene fra arrayen.
+            for(let teller = 0; teller < 6; teller++){  //Jeg valgte å bruke en for løkke for å kjøre math.random koden 6 ganger.
+                let random = Math.floor(Math.random() * hexadecimal_characters_array.length) //Brukte math.random funksjonen som vi testet i løkker forelesningen for å generere et tilfeldig tall mellom 0 og total antall tegn i arrayen for å bruke kodelinjen under til å hente et tilfeldig tegn fra arrayen.
+                let randomsymbol = hexadecimal_characters_array[random]   //Velger et tilfeldig tegn fra arrayen
+                utskrift += randomsymbol //Legger til det tilfeldige tegnet til utskrift variablen.
+               
+                
+           }
+           
+           return utskrift //avslutter funksjonen og returner utskriften (den tilfeldig genererte HexaDecimal koden)
+          
+           }
+
+        
+           htmlutskrift.innerHTML = HexaDecimal() //Kaller funksjonen en gang og endrer html elementet "random_color" til resultatet av funksjonen
+           
+           
+
+        //PROBLEM 2
+        const programming_words = ["variabel","funksjon","array","objekt","loop","betingelse","klasse","rekursjon","algoritme","kompilator"]
+
+        //Din kode for å løse problem 2 her.
+
+           function Exists(x){
+            let doesexist = ""  //Lager en tom variabel for å skrive Ja eller Nei basert på om elementet finnes i arrayen
+            if (programming_words.includes(x)){   //Bruker en "if test" for å sjekke om X (input i funksjonen) finnes i arrayet.
+                doesexist = "Ja"
+                 }else{
+                    doesexist = "Nei"
+                 }
+                 return doesexist //Returner teksten i variabelen doesexist som er enten Ja eller Nei basert på resultatet av if testen
+          }
+
+          document.getElementById("betingelse_sjekk").innerHTML = Exists("betingelse")
+          document.getElementById("algoritme_sjekk").innerHTML = Exists("algoritme")
+          document.getElementById("problemlosning_sjekk").innerHTML = Exists("problemlosning")  //Gjør at funksjonen blir kjørt en gang for hvert ord jeg skal sjekke om finnes i arrayen og skriver resultatet i html koden.
+
+        //PROBLEM 3
+        const tall_array_en = [9, 13, 5, 62, 11, 6, 28, 31, 17]
+        const tall_array_to = [23, 76, 88, 13, 56, 90, 42]
+
+        
+        
+        //Din kode for å løse problem 3 her.
+
+         function TotalAvg(x) {
+            let ArrayTotal = 0         //Lager en variabel som jeg kan lagre arraysummen etter den har blitt plusset sammen i
+            const ArrayAdd = x.map(element => {
+                ArrayTotal += element //Bruker .map til å legge sammen alle de ulike tallene i arrayen som blir skrevet i inputten (x)
+                
+                return element
+                
+            })
+            
+            let Avg = ArrayTotal / x.length  //Lager en variabel jeg kan lagre utregningen Arraytotal (sammenlagte summen på elementene i arrayen) delt på lengden på arrayen for å regne ut gjennomsnittet
+            return Avg
+        
+        }
+
+
+        document.getElementById("avg_array_one").innerHTML = TotalAvg(tall_array_en)
+
+        document.getElementById("avg_array_two").innerHTML = TotalAvg(tall_array_to) //kaller funksjonen på de to html elementene. det var skrevet avg_array_one, 2 ganger i html dokumentet over så jeg endret den ene til avg_array_two for å kunne skrive ut gjennomsnittet på begge arrayene.
+     
+    </script>
+</body>
+</html>

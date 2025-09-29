@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Tilfeldig Hexadecimal</h2>
+    <button onclick="randomHEX()">Generer en tilfeldig Hexadecimal</button>
+    <p id="utskrift"></p>
+
+    <script>
+
+      
+        //Hint fra foreleser om arbeidskrav2:
+        //
+        // function randomMinMax(a, b){
+        // return Math.floor(Math.random() * (b - a + 1) + a)}
+        // console.log(randomMinMax(0, 100))
+
+        
+        //skal prøve å gjøre at denne genererer en tilfeldig HEX color code
+        //Jeg vet at en HEX color code består av en hashtag etterfulgt av seks tegn som kan være alt fra tallene 0-9 eller en bokstav fra A-F
+        //Jeg tenker å prøve å gjøre at denne funksjonen vil generere et tall mellom 0-15 og gjøre at tallet 10 blir gjort om til A, 11 til B osv.
+
+        //Stod litt fast etter litt testing og bestemte meg for å lese gjennom math random på w3schools: https://www.w3schools.com/jsref/jsref_random.asp
+        //Jeg valgte å bruke if tester på hver enkel tilfeldig generert tall for å gjøre dem om til bokstaver om de var et tall fra 10-15
+
+        function randomHEX(){
+            let Number2 = Math.floor((Math.random() * 15) + 1);
+            let Number1 = Math.floor((Math.random() * 15) + 1);
+            let Number3 = Math.floor((Math.random() * 15) + 1);
+            let Number4 = Math.floor((Math.random() * 15) + 1);
+            let Number5 = Math.floor((Math.random() * 15) + 1);
+            let Number6 = Math.floor((Math.random() * 15) + 1);
+
+            if(Number1 === 10){
+                Number1 = "A"} else if(
+                    Number1 === 11){
+                        Number1 = "B"
+                    }else if(
+                    Number1 === 12){
+                        Number1 = "C"
+                    }
+                    else if(
+                    Number1 === 13){
+                        Number1 = "D"
+                    }
+                    else if(
+                    Number1 === 14){
+                        Number1 = "E"
+                    }else if(
+                    Number1 === 15){
+                        Number1 = "F"
+                    }
+
+                    if(Number2 === 10){
+                Number2 = "A"} else if(
+                    Number2 === 11){
+                        Number2 = "B"
+                    }else if(
+                    Number2 === 12){
+                        Number2 = "C"
+                    }
+                    else if(
+                    Number2 === 13){
+                        Number2 = "D"
+                    }
+                    else if(
+                    Number2 === 14){
+                        Number2 = "E"
+                    }else if(
+                    Number2 === 15){
+                        Number2 = "F"
+                    }
+
+                    if(Number3 === 10){
+                Number3 = "A"} else if(
+                    Number3 === 11){
+                        Number3 = "B"
+                    }else if(
+                    Number3 === 12){
+                        Number3 = "C"
+                    }
+                    else if(
+                    Number3 === 13){
+                        Number3 = "D"
+                    }
+                    else if(
+                    Number3 === 14){
+                        Number3 = "E"
+                    }else if(
+                    Number3 === 15){
+                        Number3 = "F"
+                    }
+
+                    if(Number4 === 10){
+                Number4 = "A"} else if(
+                    Number4 === 11){
+                        Number4 = "B"
+                    }else if(
+                    Number4 === 12){
+                        Number4 = "C"
+                    }
+                    else if(
+                    Number4 === 13){
+                        Number4 = "D"
+                    }
+                    else if(
+                    Number4 === 14){
+                        Number4 = "E"
+                    }else if(
+                    Number4 === 15){
+                        Number4 = "F"
+                    }
+
+                    if(Number5 === 10){
+                Number5 = "A"} else if(
+                    Number5 === 11){
+                        Number5 = "B"
+                    }else if(
+                    Number5 === 12){
+                        Number5 = "C"
+                    }
+                    else if(
+                    Number5 === 13){
+                        Number5 = "D"
+                    }
+                    else if(
+                    Number5 === 14){
+                        Number5 = "E"
+                    }else if(
+                    Number5 === 15){
+                        Number5 = "F"
+                    }
+
+                    if(Number6 === 10){
+                Number6 = "A"} else if(
+                    Number6 === 11){
+                        Number6 = "B"
+                    }else if(
+                    Number6 === 12){
+                        Number6 = "C"
+                    }
+                    else if(
+                    Number6 === 13){
+                        Number6 = "D"
+                    }
+                    else if(
+                    Number6 === 14){
+                        Number6 = "E"
+                    }else if(
+                    Number6 === 15){
+                        Number6 = "F"
+                    }
+                
+
+             
+           let HEXA = `#${Number1}${Number2}${Number3}${Number4}${Number5}${Number6}<br>`
+           document.getElementById("utskrift").innerHTML += HEXA
+           
+            
+         }
+
+       
+
+
+        //Jeg brukte chatgpt for å finne en kortere løsning på oppgaven, CHATGPT kode under i kommentarform:
+
+        //// Generates a 6-character random hex string (e.g., "3D0ACF")
+        //const hexCode = Array.from({ length: 6 }, () => 
+        //  (Math.floor(Math.random() * 15) + 1).toString(16).toUpperCase()
+        //).join('');
+
+        // If you want the full color code (e.g., "#3D0ACF")
+        //const fullCode = '#' + hexCode; 
+
+         //Jeg syntes at koden jeg har laget var litt for lang og jeg ville ikke bruke chatgpt svaret og valgte derfor å søke gjennom w3schools og lignende kode-forumer for å se etter en bedre løsning siden jeg syntes oppgaven var litt interessant.
+         //Jeg fant en veldig kort og lett løsning på koden som jeg inkluderer som kommentar under:
+        // test = '#'+(Math.random()*0xFFFFFF<<0).toString(16).toUpperCase();  // En kort metode funnet på stackoverflow i form av en kommentar
+       //  (En av kommentarene med høyest rating i Kilde: https://stackoverflow.com/questions/1484506/random-color-generator)
+       
+       //let test = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).toUpperCase().padStart(6, '0');  --Jeg merket at koden over, av og til genererte bare 5 tegn til hexadecimal koden  
+       //og jeg valgte å spør chatgpt hvorfor det skjedde, jeg fikk et langt og kjedelig svar tilbake og velger å ikke inkludere dette her for å spare plass men løsningen var å 
+       //legge til .padstart som tvinger koden til å bli 6 tegn lang og om buggen fra forrige kode skjer igjen og det bare er 5 tegn vil den legge til `0` som første tall i hexakoden
+     
+// Generates a 6-character random hex string (e.g., "3D0ACF")
+
+    </script>
+</body>
+</html>
