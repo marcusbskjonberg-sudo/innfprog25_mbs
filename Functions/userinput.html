@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userinput</title>
+</head>
+<body>
+    <!--Html attributt knapp-->
+    <button onclick="printMessage()">Try me</button>   
+    
+    <!--EventListener knapp-->
+    <button id="printEvent">Trigger event</button>
+
+    <!--Skjemafelt-->
+    
+        <label for="name">
+            Name:
+            <input type="text" id="name">
+        </label>
+        <button id="submitform">Submit</button>
+    
+
+
+    <script>
+
+        //Html attributtknapp
+        function printMessage(){
+            console.log("Hei verden1")
+        }
+
+        //EventListener knapp
+        function printEventMessage(){
+            console.log("Hei verden2")
+        }
+
+        const eventBtn = document.getElementById("printEvent")
+
+        eventBtn.addEventListener("click", () => {
+        printEventMessage()
+        })
+
+        //Ta imot brukerinput fra skjemafelt
+
+        function getUserInput(){
+            let getUsername = document.getElementById("name")
+
+            userArray.push(getUsername.value)
+
+            console.log(userArray)
+
+            getUsername.value = ""
+        }
+
+        const userArray = []
+
+        const submitForm = document.getElementById("submitform")
+
+        submitForm.addEventListener("click", () => {
+            getUserInput()
+        })
+
+        
+    </script>
+</body>
+</html>
