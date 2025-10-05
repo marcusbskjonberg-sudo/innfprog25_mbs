@@ -33,9 +33,9 @@
   const htmlutskrift = document.getElementById("random_color")  //Kobler til html elementet for å kunne endre på det med javascript
 
         function HexaDecimal(){
-            let utskrift = `#`  //variabel for å samle de tilfeldig valgte tegnene fra arrayen.
+            let utskrift = `#`  //variabel for å samle de tilfeldig valgte tegnene fra arrayen så de kan skrives ut senere.
             for(let teller = 0; teller < 6; teller++){  //Jeg valgte å bruke en for løkke for å kjøre math.random koden 6 ganger.
-                let random = Math.floor(Math.random() * hexadecimal_characters_array.length) //Brukte math.random funksjonen som vi testet i løkker forelesningen for å generere et tilfeldig tall mellom 0 og total antall tegn i arrayen for å bruke kodelinjen under til å hente et tilfeldig tegn fra arrayen.
+                let random = Math.floor(Math.random() * hexadecimal_characters_array.length) //Brukte math.random funksjonen som vi testet i løkker forelesningen for å generere et tilfeldig tall mellom 0 og total antall tegn i arrayen for å bruke neste kodelinje til å hente et tilfeldig tegn fra arrayen.
                 let randomsymbol = hexadecimal_characters_array[random]   //Velger et tilfeldig tegn fra arrayen
                 utskrift += randomsymbol //Legger til det tilfeldige tegnet til utskrift variablen.
                
@@ -47,7 +47,7 @@
            }
 
         
-           htmlutskrift.innerHTML = HexaDecimal() //Kaller funksjonen en gang og endrer html elementet "random_color" til resultatet av funksjonen
+           htmlutskrift.innerHTML = HexaDecimal() //Kaller funksjonen en gang og endrer html elementet "random_color" til den tilfeldig genererte hexadecimalen.
            
            
 
@@ -57,13 +57,13 @@
         //Din kode for å løse problem 2 her.
 
            function Exists(x){
-            let doesexist = ""  //Lager en tom variabel for å skrive Ja eller Nei basert på om elementet finnes i arrayen
+            let doesexist = ""  //Lager en variabel med en tom tekst-streng for å skrive ut Ja eller Nei utifra om elementet finnes i arrayen
             if (programming_words.includes(x)){   //Bruker en "if test" for å sjekke om X (input i funksjonen) finnes i arrayet.
                 doesexist = "Ja"
                  }else{
                     doesexist = "Nei"
                  }
-                 return doesexist //Returner teksten i variabelen doesexist som er enten Ja eller Nei basert på resultatet av if testen
+                 return doesexist //Returner teksten lagret i variabelen doesexist som er enten Ja eller Nei basert på resultatet av if testen
           }
 
           document.getElementById("betingelse_sjekk").innerHTML = Exists("betingelse")
@@ -79,23 +79,23 @@
         //Din kode for å løse problem 3 her.
 
          function TotalAvg(x) {
-            let ArrayTotal = 0         //Lager en variabel som jeg kan lagre arraysummen etter den har blitt plusset sammen i
+            let ArrayTotal = 0         //Lager en variabel som kan lagre arraysummen etter den har blitt plusset sammen
             const ArrayAdd = x.map(element => {
-                ArrayTotal += element //Bruker .map til å legge sammen alle de ulike tallene i arrayen som blir skrevet i inputten (x)
+                ArrayTotal += element //Bruker .map til å legge sammen alle de ulike tallene i den valgte arrayen (x)
                 
-                return element
+                return ArrayTotal
                 
             })
             
             let Avg = ArrayTotal / x.length  //Lager en variabel jeg kan lagre utregningen Arraytotal (sammenlagte summen på elementene i arrayen) delt på lengden på arrayen for å regne ut gjennomsnittet
-            return Avg
+            return Avg //Ender funksjonen og returnerer Avg/gjennomsnittet
         
         }
 
 
         document.getElementById("avg_array_one").innerHTML = TotalAvg(tall_array_en)
 
-        document.getElementById("avg_array_two").innerHTML = TotalAvg(tall_array_to) //kaller funksjonen på de to html elementene. det var skrevet avg_array_one, 2 ganger i html dokumentet over så jeg endret den ene til avg_array_two for å kunne skrive ut gjennomsnittet på begge arrayene.
+        document.getElementById("avg_array_two").innerHTML = TotalAvg(tall_array_to) //kaller funksjonen og skriver ut resultatet på html elementene tall_array_en/to. det var skrevet avg_array_one, 2 ganger i html dokumentet over så jeg endret den ene til avg_array_two for å kunne skrive ut gjennomsnittet på begge arrayene.
      
     </script>
 </body>
