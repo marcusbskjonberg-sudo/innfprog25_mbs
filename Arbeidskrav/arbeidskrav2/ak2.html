@@ -26,7 +26,7 @@
         
         //Din kode for å løse problem 1 her.
 
-            // let Number2 = Math.floor((Math.random() * 15) + 1); -- bruker denne linjen med kode som utgangspunkt for å lage funksjonen -- ble hintet som viktig for arbeidskrav 2 av foreleser
+            // let Number2 = Math.floor((Math.random() * 15) + 1);  (Copy + pasted fra notater fra forelesning) -- Thor Andreas hintet til at Math.floor(Math.random) var viktig i Arbeidskrav 2, så jeg brukte den i problem 1.
             
             // console.log(hexadecimal_characters, hexadecimal_characters_array)
             
@@ -34,7 +34,7 @@
 
         function HexaDecimal(){
             let utskrift = `#`  //variabel for å samle de tilfeldig valgte tegnene fra arrayen så de kan skrives ut senere.
-            for(let teller = 0; teller < 6; teller++){  //Jeg valgte å bruke en for løkke for å kjøre math.random koden 6 ganger.
+            for(let teller = 0; teller < 6; teller++){  //Jeg valgte å bruke en for løkke for å kjøre math.random koden 6 ganger. Dette gjorde jeg siden hexadecimaler er 6 tegn lange.
                 let random = Math.floor(Math.random() * hexadecimal_characters_array.length) //Brukte math.random funksjonen som vi testet i løkker forelesningen for å generere et tilfeldig tall mellom 0 og total antall tegn i arrayen for å bruke neste kodelinje til å hente et tilfeldig tegn fra arrayen.
                 let randomsymbol = hexadecimal_characters_array[random]   //Velger et tilfeldig tegn fra arrayen
                 utskrift += randomsymbol //Legger til det tilfeldige tegnet til utskrift variablen.

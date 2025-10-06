@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HexadecimalGenerator</title>
+</head>
+<body>
+    
+    <button id="knapp">Generer Hexadecimal</button>
+
+    <ul id="HEXList"></ul>
+
+    <script>
+        const HexUL = document.getElementById(`HEXList`)
+        //let random = Math.floor(Math.random() * hexadecimal_characters_array.length)
+
+        function HEX() {
+            const random = Math.round(Math.random() * 16777215).toString(16).padStart(6, 0).toUpperCase()
+            let list = document.getElementById("HEXList")
+            
+
+            const liElements = HexUL.querySelectorAll("li");
+            const liAmount = liElements.length;
+            
+            if(liAmount < 5){
+                list.innerHTML += `<li>${random}</li>`
+            } else if(liAmount < 6) {
+                list.innerHTML += `<li>stop</li>`
+            } else return
+        }
+
+        document.getElementById("knapp").addEventListener("click", () => {HEX()})
+    </script>
+</body>
+</html>
