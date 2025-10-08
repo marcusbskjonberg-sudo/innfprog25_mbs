@@ -115,6 +115,89 @@
         }
 
         updateStaticUI()
+
+        //Workshop 2 kode:
+
+        //Oppgave 1:
+
+        function toggleVisibility(elementid){
+           
+            const elem = document.getElementById(elementid)
+
+            console.log(elem)
+
+            if (elem.classList.contains("hidden")){
+                elem.style.display = "block"
+                elem.classList.remove("hidden")
+            } else{
+                elem.style.display = "none"
+                elem.classList.add("hidden")
+            }
+        }
+
+        toggleVisibility("info")
+
+        //Oppgave 2:
+
+        document.addEventListener("keydown", (event) => {
+            console.log(event.code)
+            if(event.code === "KeyN"){
+                toggleVisibility("notebook")
+            } else if(event.code === "KeyI"){
+                toggleVisibility("info")
+            }
+        })
+
+        //Oppgave 3:
+
+        const infoTogglerBtn = document.getElementById("infoToggler")
+        const notebookTogglerBtn = document.getElementById("notebookToggler")
+
+        infoTogglerBtn.addEventListener("click", () => {
+            toggleVisibility("info")
+        })
+        notebookTogglerBtn.addEventListener("click", () => {
+            toggleVisibility("notebook")
+        })
+        
+        //Oppgave 4:
+
+        function updateSingleStaticUI(elementid, value){
+            console.log(elementid, value)
+            document.getElementById(elementid).innerHTML = value
+        }
+
+        updateSingleStaticUI("points", 10)
+        updateSingleStaticUI("energy", 10)
+
+        //Oppgave 5:
+
+        function updateConfigValue(configType, value){
+
+            console.log(configType)
+
+            //Metode med mindre kode:
+            //function updateConfigValue(obj, configType, value)
+            //obj === "notebook" ? notebook[configType] += value : null
+            //obj === "gameConfig" ? gameConfig[configType] += value : null
+
+            //enda mindre:
+            //obj === "notebook" ? notebook[configType] += value : gameConfig[configType] += value
+
+            configType === "variables" ? notebook.variables += value : null
+            configType === "arrays" ? notebook.arrays += value : null
+            configType === "loops" ?  notebook.loops += value : null
+            configType === "functions" ?  notebook.functions += value : null
+
+            configType === "energy" ? gameConfig.energy += value : null
+            configType === "points" ? gameConfig.points += value : null
+            configType === "duration" ? gameConfig.duration += value : null
+
+
+            updateStaticUI()
+        }
+
+        updateConfigValue("variables", 10)
     </script>
 </body>
 </html>
