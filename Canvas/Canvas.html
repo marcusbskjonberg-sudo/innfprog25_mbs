@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tegning i Canvas</title>
+    <style>
+        #drawing-area{
+            border: 2px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawing-area"></canvas>
+
+
+    <script>
+        const mainColor = "#C28538"
+
+        const canvas = document.getElementById("drawing-area")
+        const ctx = canvas.getContext("2d")
+
+        canvas.width = 800
+        canvas.height = 600
+
+        const rectangle = {
+            x: 300,
+            y: 250,
+            width: 200,
+            height: 100
+        }
+
+        const circle = {
+            x: 200,
+            y: 200,
+            radius: 50
+        }
+
+        //Tegner streker
+        ctx.beginPath()
+        ctx.moveTo(0, 0)
+        ctx.lineTo(800, 600)
+        ctx.moveTo(800, 0)
+        ctx.lineTo(0, 600)
+        ctx.stroke()
+        ctx.closePath()
+
+        //Tegner rektangel
+        ctx.beginPath()
+        ctx.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height) //X, Y, Bredde, Høyde
+        ctx.fillStyle = "#C28538" //eller fillstyle = mainColor
+        ctx.strokeStyle = "green"
+        ctx.fill()
+        ctx.stroke()
+        ctx.closePath()
+
+        //Tegner sirkel
+        ctx.beginPath()
+        ctx.arc(circle.x, circle.y, circle.radius, 0, 2*Math.PI) //X, Y, Radius, Startvinkel, Sluttvinkel, PI er brukes alltid i sirkler.
+        ctx.fillStyle = "gold"
+        ctx.fill()
+        ctx.closePath()
+
+        //Tekst
+        ctx.beginPath()
+        ctx.font = "150px Arial"
+        ctx.strokeText("5", 360, 420)
+        ctx.font = "24px Helvetica"
+        ctx.fillStyle = "purple"
+        ctx.fillText("Marcus", 200, 200) //Tekst, X, Y
+        ctx.closePath()
+
+        //Tegne eksisterende bilde inn i Canvas
+        const pumpkin = new Image() //Høyde, Bredde
+        pumpkin.src = "pumpkin.png"
+        let pumpkinLoaded = false //Fungerer uten sjekken?
+        pumpkin.onload = () => {
+            ctx.drawImage(pumpkin, 0, 0, 128, 128) //Hva, X, Y, Høyde, Bredde
+            pumpkinLoaded = true
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
