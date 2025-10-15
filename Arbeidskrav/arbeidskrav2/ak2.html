@@ -26,7 +26,7 @@
         
         //Din kode for å løse problem 1 her.
 
-            // let Number2 = Math.floor((Math.random() * 15) + 1);  (Copy + pasted fra notater fra forelesning) -- Thor Andreas hintet til at Math.floor(Math.random) var viktig i Arbeidskrav 2, så jeg brukte den i problem 1.
+            // let Number2 = Math.floor((Math.random() * 15) + 1);  (Copy + pasted fra notater fra forelesning) -- Thor hintet til at Math.floor(Math.random) var viktig i Arbeidskrav 2, så jeg brukte den i problem 1.
             
             // console.log(hexadecimal_characters, hexadecimal_characters_array)
             
@@ -58,7 +58,7 @@
 
            function Exists(x){
             let doesexist = ""  //Lager en variabel med en tom tekst-streng for å skrive ut Ja eller Nei utifra om elementet finnes i arrayen
-            if (programming_words.includes(x)){   //Bruker en "if test" for å sjekke om X (input i funksjonen) finnes i arrayet.
+            if (programming_words.includes(x)){   //Bruker en "if test" for å sjekke om X (parameteret av funksjonen) finnes i arrayet.
                 doesexist = "Ja"
                  }else{
                     doesexist = "Nei"
@@ -88,14 +88,15 @@
             })
             
             let Avg = ArrayTotal / x.length  //Lager en variabel jeg kan lagre utregningen Arraytotal (sammenlagte summen på elementene i arrayen) delt på lengden på arrayen for å regne ut gjennomsnittet
-            return Avg //Ender funksjonen og returnerer Avg/gjennomsnittet
+            return Avg //Ender funksjonen og returnerer variablen Avg/gjennomsnittet
         
         }
 
 
         document.getElementById("avg_array_one").innerHTML = TotalAvg(tall_array_en)
 
-        document.getElementById("avg_array_two").innerHTML = TotalAvg(tall_array_to) //kaller funksjonen og skriver ut resultatet på html elementene tall_array_en/to. det var skrevet avg_array_one, 2 ganger i html dokumentet over så jeg endret den ene til avg_array_two for å kunne skrive ut gjennomsnittet på begge arrayene.
+        document.getElementById("avg_array_two").innerHTML = TotalAvg(tall_array_to) //kaller funksjonen og skriver ut resultatet på html elementene tall_array_en/to. 
+        // det var skrevet avg_array_one, 2 ganger i html dokumentet over så jeg endret den ene til avg_array_two for å kunne skrive ut gjennomsnittet på begge arrayene.
      
     </script>
 </body>
