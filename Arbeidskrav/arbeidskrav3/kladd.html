@@ -6,7 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <main>
+        <li><input type="checkbox" id="BigChecker">
+        <label for="BigChecker">Store bokstaver</label></li>
+        <li><input type="checkbox" id="SmallChecker">
+        <label for="SmallChecker">Små bokstaver</label></li>
+    </main>
 
 
     <script>
@@ -24,9 +29,62 @@
 
         }
 
+function numSelectorRecursiveClean(currentList = "") {
+    // 1. Generate the next number (1-9)
+    const number = Math.floor(Math.random() * 9) + 1;
+    
+    // 2. Append it to the list
+    const nextList = currentList + number;
+    
+    // 3. Check the exit condition
+    if (number === 4 || number === 7) {
+        // Stop the recursion and return the completed list
+        return nextList;
+    } else {
+        // Continue the recursion, passing the updated list
+        return numSelectorRecursiveClean(nextList);
+    }
+}
+
+
+
+
+
+            let passLength = 5
+            let symbolss = false
+            let small = false
+            let big = false
+
+    const bigLetters = ["A", "B", "C", "D", "E", "F"]
+    const smallLetters = ["a", "b", "c", "d", "e", "f"]
+    const symbols = ["!", "#", "¤", "%", "&"]
 
         function passGen(){
-            
+            const brukerValg = []
+
+            const pL = passLength
+            const symbolCheck = symbolss
+            const smallCheck = small
+            const bigCheck = big
+            const bigchars = bigLetters
+            const smallchars = smallLetters
+            const symbls = symbols
+
+            bigCheck ? brukerValg.push(...bigLetters) : null
+            smallCheck ? brukerValg.push(...smallLetters) : null
+            symbolCheck ? brukerValg.push(...symbols) : null
+            if (brukerValg.length === 0){
+                console.log("Du må velge minst et alternativ")
+                return
+            } else {console.log(brukerValg)}
+
+            let passord = ""
+            for (teller = 0; teller < pL; teller++){
+                let valg = Math.floor(Math.random() * brukerValg.length)
+                passord += brukerValg[valg]
+                console.log(passord)
+                
+            }
         }
 
     </script>

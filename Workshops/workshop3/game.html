@@ -31,6 +31,7 @@
         </nav>
     </header>
     <main>
+        <canvas id="gameWindow"></canvas>
         
         <section id="notebook">
             <div id="notebook-page">
@@ -80,7 +81,8 @@
             playerName: "Jostein",
             energy: 10,
             points: 4000,
-            duration: 30
+            duration: 30,
+            gamePaused: true
         }
 
         console.log(gameConfig)
@@ -91,6 +93,12 @@
             loops: 4,
             functions: 3,
             arrays: 7
+        }
+
+        const fortran = {
+            Speed: 1,
+            X: 400,
+            Y: 300
         }
 
         
@@ -167,6 +175,31 @@
         updateConfigValue("duration", 100)
         updateConfigValue("loops", 1000)
 
+        //Workshop 3
+        //Oppgave 1
+        const gameScreen = document.getElementById("gameWindow")
+        gameScreen.width = 800
+        gameScreen.height = 600
+        const ctx = gameScreen.getContext("2d")
+        const heroImage = new Image()
+        let heroLoaded = false
+        
+        
+        heroImage.onload = () => {heroLoaded = true, drawScene()}
+        heroImage.src = "icons/fortran.png"
+
+        function drawScene(){
+        ctx.beginPath()
+        ctx.fillStyle = "#ffffff"
+        ctx.fillRect(325, 535, 150, 50)
+        ctx.fillStyle = "#3c429b"
+        ctx.font = "48px serif"
+        heroLoaded ? ctx.drawImage(heroImage, fortran.X, fortran.Y) : null
+        if(gameConfig.gamePaused){
+            ctx.fillText("Press P to Pause", 325, 575, 150)
+        }
+        ctx.closePath()
+        }
     </script>
 </body>
 </html>
