@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasjon i Canvas</title>
+    <style>
+        canvas{
+            border: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="drawingarea"></canvas>
+
+    <script>
+        const canvas = document.getElementById("drawingarea")
+        const ctx = canvas.getContext("2d")
+
+        canvas.width = 800
+        canvas.height = 600
+
+        const ball = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: 20,
+            speedx: 5,
+            speedy: 5
+        }
+
+        function drawBall(){
+            //oppdatering av posisjoner
+            ball.x += ball.speedx
+            ball.y += ball.speedy
+
+
+            console.log(ball.x, ball.y)
+            //kollisjonsdeteksjon
+            
+            if(ball.y + ball.radius > canvas.height*2){
+                ball.speedy = -ball.speedy
+            }
+            if(ball.x + ball.radius > canvas.width){
+                ball.speedx = -ball.speedx
+            }
+            if(ball.x - ball.radius < 0){
+                ball.speedx = ball.speedx * -1
+            }
+            if(ball.y - ball.radius < 0){
+                ball.speedy = ball.speedy * -1
+            }
+
+            //clearRect sletter elementer i canvas før ny tegning
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.beginPath()
+            ctx.fillStyle = "#003366"
+            ctx.arc(ball.x, ball.y / 2, ball.radius, 0, 2 * Math.PI)
+            ctx.fill()
+            ctx.closePath()
+
+            requestAnimationFrame = 
+            window.requestAnimationFrame || 
+            window.webkitRequestAnimationFrame || 
+            window.msRequestAnimationFrame || 
+            window.mozRequestAnimationFrame
+
+            requestAnimationFrame(drawBall)
+            
+        }
+
+        drawBall()
+
+        // setInterval(() => {
+        //     ball.x += 2
+        //     drawBall()
+        //     console.log(ball.x, ball.y)
+        // }, 500)
+    </script>
+</body>
+</html>
