@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kladd2</title>
+    <title>Passord Generator</title>
 </head>
 <body>
     
+    <!--Brukerinput for passordgenerering-->
     <ul>
         <li><button id="smallButton">Small chars? NEI</button></li>
         <li><button id="bigButton">Big chars? NEI</button></li>
@@ -15,27 +16,37 @@
             <input type="number" id="passLengde" name="passordLengde"></li>
         <li><button onclick="passGen()">Generer passord</button></li>
     </ul>
+    <!--Utskrift for genererte passord-->
     <ul id="passListe">
 
     </ul>
 
     <script>
-        //Passordgenerator med userInput
-        const smallChars = "abcdefg"
-        const bigChars = "ABCDEFG"
-        const symbols = "!#¤%&/"
+        //Variabler for små/store bokstaver og symboler
+        const smallChars = "abcdefghijklmnopqrstuvwxyz"
+        const bigChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        const symbols = "!#¤%&/()=?@£$€{[]}"
+        //Variabler for å lagre brukeren sine valg for passordgenerering. små/store bokstaver og symbol
         let smallToggle = false
         let bigToggle = false
         let symbolToggle = false
         
     
-
+        //Funksjonen for generering av passord
         function passGen(){
+            //Variabel for å samle de tilfeldig genererte tegnene til passordet
             let password = ""
+            //Array for å samle tegnene som brukeren vil generere passord fra
             const array = []
+            //Kobler liste for genererte passord til en variabel
             const passListe = document.getElementById("passListe")
-            let passordLengdeInput = document.getElementById("passLengde").valueAsNumber //Value as number kilde
+            //Kobler input i html koden for lengde av passord til en variabel
+            //Lagrer passordlengde-inputten fra html koden i en variabel og legger på .valueAsNumber
+            let passordLengdeInput = document.getElementById("passLengde").valueAsNumber
+            //Setter lengden på det genererte passordet til brukerinputten i html-koden
             let lengde = passordLengdeInput
+
+            //Massevis av if tester for brukerinput
             if(typeof lengde ==="number"){
                 console.log("lengde = tall")
             } else {return "yo"}
@@ -49,6 +60,14 @@
             if(array.length < 1){
                
                 return alert("Ingenting valgt")
+            }
+            if(lengde <= 0){
+                return alert("for kort")
+            }
+            //Bruker isNaN (is not a number) for å sjekke om passlengde inputten er et tall
+            //Om brukerinputten på passordlengde ikke er et tall vil funksjonen bare gi en alert
+            if(isNaN(lengde)){
+                return alert("må være tall")
             }
             
             
