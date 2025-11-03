@@ -41,47 +41,50 @@
             //Kobler liste for genererte passord til en variabel
             const passListe = document.getElementById("passListe")
             //Kobler input i html koden for lengde av passord til en variabel
-            //Lagrer passordlengde-inputten fra html koden i en variabel og legger på .valueAsNumber
+            //Lagrer passordlengde-inputten fra html koden i en variabel og legger på .valueAsNumber for å gjøre det til et number fra string
+            //Kilde: https://stackoverflow.com/questions/28695617/how-to-get-a-number-value-from-an-input-field for valueAsNumber egenskapen
             let passordLengdeInput = document.getElementById("passLengde").valueAsNumber
             //Setter lengden på det genererte passordet til brukerinputten i html-koden
             let lengde = passordLengdeInput
 
-            //Massevis av if tester for brukerinput
-            if(typeof lengde ==="number"){
-                console.log("lengde = tall")
-            } else {return "yo"}
+            //IF tester for brukerinputten
+            
+            //Sjekker brukervalg for symboler brukt i passordgenerering og pusher valgene til array for passordgenerering.
             if(smallToggle){
                 array.push(...smallChars)}
             if(bigToggle){
                 array.push(...bigChars)}
             if(symbolToggle){
                 array.push(...symbols)}
-            
-            if(array.length < 1){
+            //Lager en alert om brukeren ikke har valgt små/store bokstaver eller symboler til passordgenerering (Om arrayen er tom)
+            if(array.length <= 0){
                
                 return alert("Ingenting valgt")
             }
+            //
             if(lengde <= 0){
-                return alert("for kort")
+                return alert("Passord må være minst 1 tegn langt")
             }
             //Bruker isNaN (is not a number) for å sjekke om passlengde inputten er et tall
             //Om brukerinputten på passordlengde ikke er et tall vil funksjonen bare gi en alert
             if(isNaN(lengde)){
-                return alert("må være tall")
+                return alert("Passord lengde må være et tall")
             }
             
             
-
+            //Bruker en for-løkke for å velge tilfeldige tegn fra arrayen, for løkken kjører så mange ganger som brukeren har valgt i inputten (lengde variablen)
             for(teller = 0; teller < lengde; teller++){
+                //Bruker math.random() * array.length for å velge et tilfeldig tall der høyeste tallet mulig er lengden på arrayen jeg henter tilfeldige symbol fra.
                 const rng = Math.floor(Math.random() * array.length)
+                //Bruker det tilfeldige tallet fra math.random for å lagre de tilfeldige tegnene til variablen password som til slutt blir det ferdige genererte passordet.
                 password += array[rng]
                 }
-            
+            //Skriver det ferdige genererte passordet ut til en uordnet liste i html koden og stopper funksjonen
            passListe.innerHTML += `<li>${password}</li>`
            return password
         }
 
-        
+        //Funksjoner for knappene i html koden. Skrur toggle variablene AV/PÅ og endrer teksten på knappene når funksjonene kalles (knappene blir trykket på)
         function smallToggler(){
             smallToggle = !smallToggle
             button = document.getElementById("smallButton")
@@ -104,6 +107,7 @@
             } else {button.innerHTML = "Symbols? NEI"}
         }
 
+        //Bruker eventlistener på toggle-knappene for å kjøre funksjonene over.
         document.getElementById("smallButton").addEventListener("click", () => {smallToggler()})
         document.getElementById("bigButton").addEventListener("click", () => {bigToggler()})
         document.getElementById("symbolButton").addEventListener("click", () => {symbolToggler()})
