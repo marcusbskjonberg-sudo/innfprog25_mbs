@@ -61,11 +61,11 @@
                
                 return alert("Ingenting valgt")
             }
-            //
+            //Sjekker om brukeren har valgt en passord lengde som er 1 eller lengere
             if(lengde <= 0){
                 return alert("Passord må være minst 1 tegn langt")
             }
-            //Bruker isNaN (is not a number) for å sjekke om passlengde inputten er et tall
+            //Bruker isNaN (is not a number) for å sjekke om passlengde inputten er et tall - KILDE
             //Om brukerinputten på passordlengde ikke er et tall vil funksjonen bare gi en alert
             if(isNaN(lengde)){
                 return alert("Passord lengde må være et tall")
