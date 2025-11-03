@@ -46,14 +46,17 @@ function numSelectorRecursiveClean(currentList = "") {
     }
 }
 
+    
 
 
+const bigOption = document.getElementById("BigChecker")
 
-
+        let bigToggle = bigOption ? bigOption.checked : false;
             let passLength = 5
             let symbolss = false
             let small = false
-            let big = false
+            let big = bigOption
+
 
     const bigLetters = ["A", "B", "C", "D", "E", "F"]
     const smallLetters = ["a", "b", "c", "d", "e", "f"]
@@ -64,15 +67,13 @@ function numSelectorRecursiveClean(currentList = "") {
 
             const pL = passLength
             const symbolCheck = symbolss
-            const smallCheck = small
-            const bigCheck = big
+            
             const bigchars = bigLetters
             const smallchars = smallLetters
-            const symbls = symbols
 
-            bigCheck ? brukerValg.push(...bigLetters) : null
-            smallCheck ? brukerValg.push(...smallLetters) : null
-            symbolCheck ? brukerValg.push(...symbols) : null
+            big ? brukerValg.push(...bigLetters) : null
+            small ? brukerValg.push(...smallLetters) : null
+            symbols ? brukerValg.push(...symbols) : null
             if (brukerValg.length === 0){
                 console.log("Du må velge minst et alternativ")
                 return
@@ -87,6 +88,15 @@ function numSelectorRecursiveClean(currentList = "") {
             }
         }
 
+        
+        
+        bigOption.addEventListener("change", () => {big = !big})
+
+        
+        
+        
+        
+        
     </script>
 </body>
 </html>
