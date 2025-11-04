@@ -14,7 +14,7 @@
         <li><button id="symbolButton">Symboler? NEI</button></li>
         <li><label for="passLengde">Lengde på passord:</label>
             <input type="number" id="passLengde" name="passordLengde"></li>
-        <li><button onclick="passGen()">Generer passord</button></li>
+        <li><button id="Gen">Generer passord</button></li>
     </ul>
     <!--Utskrift for genererte passord-->
     <ul id="passListe">
@@ -43,9 +43,9 @@
             //Kobler input i html koden for lengde av passord til en variabel
             //Lagrer passordlengde-inputten fra html koden i en variabel og legger på .valueAsNumber for å gjøre det til et number fra string
             //Kilde: https://stackoverflow.com/questions/28695617/how-to-get-a-number-value-from-an-input-field for valueAsNumber egenskapen
-            let passordLengdeInput = document.getElementById("passLengde").valueAsNumber
+            let lengde = document.getElementById("passLengde").valueAsNumber
             //Setter lengden på det genererte passordet til brukerinputten i html-koden
-            let lengde = passordLengdeInput
+          
 
             //IF tester for brukerinputten
             
@@ -65,7 +65,8 @@
             if(lengde <= 0){
                 return alert("Passord må være minst 1 tegn langt")
             }
-            //Bruker isNaN (is not a number) for å sjekke om passlengde inputten er et tall - KILDE
+            //Bruker isNaN (is not a number) for å sjekke om passlengde inputten er et tall
+            //Kilde: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN 
             //Om brukerinputten på passordlengde ikke er et tall vil funksjonen bare gi en alert
             if(isNaN(lengde)){
                 return alert("Passord lengde må være et tall")
@@ -79,7 +80,7 @@
                 //Bruker det tilfeldige tallet fra math.random for å lagre de tilfeldige tegnene til variablen password som til slutt blir det ferdige genererte passordet.
                 password += array[rng]
                 }
-            //Skriver det ferdige genererte passordet ut til en uordnet liste i html koden og stopper funksjonen
+            //Skriver det ferdige genererte passordet ut som et listeelement til uordnet liste i html koden og stopper funksjonen
            passListe.innerHTML += `<li>${password}</li>`
            return password
         }
@@ -89,28 +90,30 @@
             smallToggle = !smallToggle
             button = document.getElementById("smallButton")
             if(smallToggle){
-                button.innerHTML = "Small chars? JA"
-            } else {button.innerHTML = "Small chars? NEI"}
+                button.innerHTML = "Små bokstaver? JA"
+            } else {button.innerHTML = "Små bokstaver? NEI"}
         }
         function bigToggler(){
             bigToggle = !bigToggle
             button = document.getElementById("bigButton")
             if(bigToggle){
-                button.innerHTML = "Big chars? JA"
-            } else {button.innerHTML = "Big chars? NEI"}
+                button.innerHTML = "Store bokstaver? JA"
+            } else {button.innerHTML = "Store bokstaver? NEI"}
         }
         function symbolToggler(){
             symbolToggle = !symbolToggle
             button = document.getElementById("symbolButton")
             if(symbolToggle){
-                button.innerHTML = "Symbols? JA"
-            } else {button.innerHTML = "Symbols? NEI"}
+                button.innerHTML = "Symboler? JA"
+            } else {button.innerHTML = "Symboler? NEI"}
         }
 
-        //Bruker eventlistener på toggle-knappene for å kjøre funksjonene over.
+        //Bruker eventlistener på toggle-knappene for å kjøre funksjonene over
         document.getElementById("smallButton").addEventListener("click", () => {smallToggler()})
         document.getElementById("bigButton").addEventListener("click", () => {bigToggler()})
         document.getElementById("symbolButton").addEventListener("click", () => {symbolToggler()})
+        //Eventlistener på generer passord knappen for å kjøre passGen funksjonen
+        document.getElementById("Gen").addEventListener("click", () => {passGen()})
 
     
 
