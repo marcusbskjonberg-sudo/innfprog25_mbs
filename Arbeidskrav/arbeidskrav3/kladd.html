@@ -6,96 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
-        <li><input type="checkbox" id="BigChecker">
-        <label for="BigChecker">Store bokstaver</label></li>
-        <li><input type="checkbox" id="SmallChecker">
-        <label for="SmallChecker">Små bokstaver</label></li>
-    </main>
-
+    
+    <p></p>
 
     <script>
-        function numSelector(list = ""){
-            let number = Math.floor((Math.random()*9)+1)
-            let newlist = list + number
-            
-            if(number === 4 || number === 7){
-                list += number
-                return newlist
+
+        //Rekursiv funksjon
+        function rekursiv(n = 1){
+            let rng = Math.floor((Math.random() * 9)+1)
+            if(rng === 4 || rng === 7){
+                console.log(`number is ${rng} attempt ${n}`)
+                return rng
             } else {
-                list += number
-                return numSelector(newlist)
-            }
-
-        }
-
-function numSelectorRecursiveClean(currentList = "") {
-    // 1. Generate the next number (1-9)
-    const number = Math.floor(Math.random() * 9) + 1;
-    
-    // 2. Append it to the list
-    const nextList = currentList + number;
-    
-    // 3. Check the exit condition
-    if (number === 4 || number === 7) {
-        // Stop the recursion and return the completed list
-        return nextList;
-    } else {
-        // Continue the recursion, passing the updated list
-        return numSelectorRecursiveClean(nextList);
-    }
-}
-
-    
-
-
-const bigOption = document.getElementById("BigChecker")
-
-        let bigToggle = bigOption ? bigOption.checked : false;
-            let passLength = 5
-            let symbolss = false
-            let small = false
-            let big = bigOption
-
-
-    const bigLetters = ["A", "B", "C", "D", "E", "F"]
-    const smallLetters = ["a", "b", "c", "d", "e", "f"]
-    const symbols = ["!", "#", "¤", "%", "&"]
-
-        function passGen(){
-            const brukerValg = []
-
-            const pL = passLength
-            const symbolCheck = symbolss
-            
-            const bigchars = bigLetters
-            const smallchars = smallLetters
-
-            big ? brukerValg.push(...bigLetters) : null
-            small ? brukerValg.push(...smallLetters) : null
-            symbols ? brukerValg.push(...symbols) : null
-            if (brukerValg.length === 0){
-                console.log("Du må velge minst et alternativ")
-                return
-            } else {console.log(brukerValg)}
-
-            let passord = ""
-            for (teller = 0; teller < pL; teller++){
-                let valg = Math.floor(Math.random() * brukerValg.length)
-                passord += brukerValg[valg]
-                console.log(passord)
-                
+                console.log(`${rng}`)
+                return rekursiv(n + 1)
             }
         }
-
-        
-        
-        bigOption.addEventListener("change", () => {big = !big})
-
-        
-        
-        
-        
         
     </script>
 </body>
