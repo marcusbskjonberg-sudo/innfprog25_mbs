@@ -86,7 +86,7 @@
             playerName: "Jostein",
             energy: 10,
             points: 4000,
-            duration: 30,
+            duration: 0,
             gamePaused: false,
             gamePausedText: "Press P to pause"
         }
@@ -109,6 +109,13 @@
             speed: 5,
             x: canvas.width / 2,
             y: canvas.height / 2
+        }
+
+        const directions = {
+            up: false,
+            left: false,
+            down: false,
+            right: false
         }
 
         
@@ -154,6 +161,35 @@
             if(event.key === "i") {
                 toggleVisibility("info")
             }
+
+
+            if(event.code === "ArrowUp" || event.code === "KeyW") {
+                directions.up = true
+            }
+            if(event.code === "ArrowLeft" || event.code === "KeyA") {
+                directions.left = true
+            }
+            if(event.code === "ArrowDown" || event.code === "KeyS") {
+                directions.down = true
+            }
+            if(event.code === "ArrowRight" || event.code === "KeyD") {
+                directions.right = true
+            }
+        })
+
+        document.addEventListener("keyup", () => {
+            if(event.code === "ArrowUp" || event.code === "KeyW"){
+                directions.up = false
+            }
+            if(event.code === "ArrowLeft" || event.code === "KeyA"){
+                directions.left = false
+            }
+            if(event.code === "ArrowDown" || event.code === "KeyS"){
+                directions.down = false
+            }
+            if(event.code === "ArrowRight" || event.code === "KeyD"){
+                directions.right = false
+            }
         })
         //WS2, Oppg 3:
         document.getElementById("notebookToggler").addEventListener("click", function() {
@@ -182,7 +218,6 @@
             updateStaticUI()
         }
         updateConfigValue("energy", -3)
-        updateConfigValue("duration", 100)
         updateConfigValue("loops", 1000)
 
         
@@ -197,7 +232,7 @@
         function drawItem(type, x, y) {
             let itemImage = new Image()
             itemImage.src = `icons/${type}.svg`
-            itemImage.onload = () => { ctx.drawImage(itemImage, x, y) }
+            ctx.drawImage(itemImage, x, y)
             //WS3, Oppg. 5.3: Utskrift av levetid:
             if(type != "bug") {
                 ctx.beginPath()
@@ -210,11 +245,23 @@
                 ctx.closePath()
             }
         }
+        
+        setInterval(() => {
+            gameConfig.duration++
+            console.log(gameConfig.duration)
+            updateSingleStaticUI("duration", gameConfig.duration)
+        }, 1000)
 
         const requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame
 
         function drawElements() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
             console.log("requestAnimationFrame kjører")
+
+            directions.up ? fortran.y -= fortran.speed : null
+            directions.left ? fortran.x -= fortran.speed : null
+            directions.down ? fortran.y += fortran.speed : null
+            directions.right ? fortran.x += fortran.speed : null
 
             if(fortranLoaded === true) {
                 ctx.drawImage(fortranImage, fortran.x, fortran.y)
@@ -251,6 +298,8 @@
         }
 
         drawElements()
+
+
 
 
 
