@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekursive funksjoner i JavaScript</title>
+</head>
+<body>
+    <h1>Rekursiv utskrift av tall</h1>
+    <button onclick="numberSelector()">Kall funksjonen</button>
+    <ul id="numberList">
+        <li>Tall vil skrives ut her.</li><br>
+    </ul>
+
+    <script>
+
+    
+        /*
+            Hva er en rekursiv funksjon?
+            --Ditt svar her. Husk kilder--
+            
+            En rekursiv funksjon er en funksjon som kaller på seg selv innenfor funksjonen for å kjøre seg selv til den løser problemet den er laget for.
+            Den består av en betingelse for å stoppe funksjonen, en kode som skal kjøres flere ganger og at den kaller på seg selv igjen.
+
+            Kilder: https://www.freecodecamp.org/news/recursion-in-javascript/ og https://developer.mozilla.org/en-US/docs/Glossary/Recursion
+
+        */
+
+        function numberSelector() {
+            // Din kode her
+            //Variabel som lagrer tilfeldig generert tall mellom 1-9 og en variabel som brukes for å forkorte utskrift til html listen.
+            const rng = Math.floor((Math.random() * 9)+1)
+            const utskrift = document.getElementById("numberList")
+            //Betingelse for å ende funksjonen, console.log brukt for å teste og utskrift.innerHTML for å skrive ut til listen i html.
+            if(rng === 4 || rng === 7){
+                console.log(`4 eller 7 funnet. Stopper funksjon`)
+                utskrift.innerHTML += `<li>Riktig tall: ${rng}</li><br>`
+                //Stopper funksjonen, målet med funksjonen er nådd.
+                return rng
+            } else {
+                //Koden som kjøres frem til betingelsen over er nådd. Logger tallet valgt, skriver ut til html og kaller seg selv.
+                console.log(`${rng}`)
+                utskrift.innerHTML += `<li>${rng}</li>`
+                //Kaller seg selv
+                return numberSelector()
+            }
+        }
+    </script>
+</body>
+</html>

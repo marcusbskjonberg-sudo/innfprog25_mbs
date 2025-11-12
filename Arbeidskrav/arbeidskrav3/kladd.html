@@ -11,14 +11,27 @@
 
     <script>
 
+
+        //Rekursiv funksjon
+        function rekursivTest(n){
+            let rng = Math.floor((Math.random() * 9)+1)
+            if(rng === 4 || rng === 7){
+                console.log(`nummer funnet: ${rng}`)
+                return rng
+            } else {
+                console.log(`feil nummer: ${rng}`)
+                return rekursivTest(n)
+            }
+        }
+
         //Rekursiv funksjon
         function rekursiv(n = 1){
             let rng = Math.floor((Math.random() * 9)+1)
             if(rng === 4 || rng === 7){
-                console.log(`number is ${rng} attempt ${n}`)
+                console.log(`nummer valgt: ${rng} forsøk: ${n}`)
                 return rng
             } else {
-                console.log(`${rng}`)
+                console.log(`feil nummer: ${rng}`)
                 return rekursiv(n + 1)
             }
         }

@@ -11,7 +11,7 @@
     <ul>
         <li><button id="smallButton">Små bokstaver? NEI</button></li>
         <li><button id="bigButton">Store bokstaver? NEI</button></li>
-        <li><button id="symbolButton">Symboler? NEI</button></li>
+        <li><button id="symbolButton">Symboler/tall? NEI</button></li>
         <li><label for="passLengde">Lengde på passord:</label>
             <input type="number" id="passLengde" name="passordLengde"></li>
         <li><button id="Gen">Generer passord</button></li>
@@ -25,7 +25,7 @@
         //Variabler for små/store bokstaver og symboler
         const smallChars = "abcdefghijklmnopqrstuvwxyz"
         const bigChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        const symbols = "!#¤%&/()=?@£$€{[]}"
+        const symbols = "!#¤%&/()=?@£$€{[]}0123456789"
         //Variabler for å lagre brukeren sine valg for passordgenerering. små/store bokstaver og symbol
         let smallToggle = false
         let bigToggle = false
@@ -104,8 +104,8 @@
             symbolToggle = !symbolToggle
             button = document.getElementById("symbolButton")
             if(symbolToggle){
-                button.innerHTML = "Symboler? JA"
-            } else {button.innerHTML = "Symboler? NEI"}
+                button.innerHTML = "Symboler/tall? JA"
+            } else {button.innerHTML = "Symboler/tall? NEI"}
         }
 
         //Bruker eventlistener på toggle-knappene for å kjøre funksjonene over

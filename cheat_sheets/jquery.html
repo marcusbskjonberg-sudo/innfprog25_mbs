@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .hidden{
+            display: none;
+        }
+
+        section{
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 5px #000;
+            width: fit-content;
+            padding: 2rem;
+            gap: 1rem;
+            border-radius: .5rem;
+            
+
+            article{
+                box-shadow: 0 0 5px #000;
+                padding: 2rem;
+                border-radius: .5rem;
+            }
+
+            button{
+                padding: 1rem;
+            }
+        }
+    </style>
+
+    <title>jQuery</title>
+</head>
+<body>
+    
+    <section>
+        <article>
+            <h1>Første overskrift</h1>
+            <p>Avsnitt med noe spennende innhold</p>
+
+            <button id="add">Endre første overskrift</button>
+        </article>
+        <article>
+            <h1>Første overskrift</h1>
+            <p>Avsnitt med noe spennende innhold</p>
+
+            <button>Endre første overskrift</button>
+        </article>
+        <article>
+            <h1>Første overskrift</h1>
+            <p class="hidden">Avsnitt med noe spennende innhold</p>
+
+            <button id="hide">Gjem teksten</button>
+        </article>
+    </section>
+
+    
+    <script
+			  src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+			  integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+			  crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(document).ready(() => {
+            $("section article:nth-child(1)").css("background-color", "gray")
+
+            $("#add").click(() => {
+                console.log("Knappen er trykket")
+                $("section article:nth-child(1) h1").text("Første overskrift er endret!");
+            })
+
+            $("#add").mouseover(() => {
+                $("section article:nth-child(1) button").css("background-color", "#055")
+            })
+
+            $("#add").mouseleave(() => {
+                $("section article button").css("background-color", "white")
+            })
+
+            $("#hide").click( () => {
+                console.log("Gjem teksten")
+                
+                $("section article:nth-child(3) p").toggleClass("hidden")
+            })
+        })
+    </script>
+</body>
+</html>
