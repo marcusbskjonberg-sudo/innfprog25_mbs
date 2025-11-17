@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    const stillinger = ["Lærer", "Vaktmester", "Rektor"]
+
+    const ansatte = [
+    {
+        navn: "Geir Ove",
+        stilling: stillinger[0],
+        kontor: "B52-1"  
+    },
+    {
+        navn: "Sigrid Aster",
+        stilling: stillinger[2],
+        kontor: "A11-B"   
+    }
+    ]
+
+    function filterAnsatte(stillingindex){
+        const targetStilling = stillinger[stillingindex]
+        const filtrertAnsatt = ansatte.filter(ansatt => ansatt.stilling === stillinger[stillingindex])
+        if (filtrertAnsatt.length === 0){
+            return "Bruh"
+        }else return filtrertAnsatt
+    }
+
+    </script>
+</body>
+</html>
