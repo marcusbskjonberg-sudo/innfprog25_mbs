@@ -7,37 +7,268 @@
 </head>
 <body>
     
+    <h1>AnsattUtskrift</h1>
 
+    <button id="visAnsatt">Vis alle</button>
+
+    <span id="utskrift"></span>
+
+    <ul id="kursPrint"></ul>
+
+    <ul id="emneList"></ul>
     <script>
-    const stillinger = ["Lærer", "Vaktmester", "Rektor"]
+//Stillinger
+const stillinger = ["Professor", "Dekan", "Rektor", "Vaktmester", "Lektor"]
 
-    const ansatte = [
+
+//Ansatte
+const ansatte = [
     {
-        navn: "Geir Ove",
-        stilling: stillinger[0],
-        kontor: "B52-1"  
+        fornavn: "Reke",
+        etternavn: "Thor",
+        stilling: stillinger[2],
+        kontor: "A-1",
+        epost: "rekethor@hiof.no",
+        kursansvar: ""    
     },
     {
-        navn: "Sigrid Aster",
-        stilling: stillinger[2],
-        kontor: "A11-B"   
+        fornavn: "Daniel",
+        etternavn: "Didrikson",
+        stilling: stillinger[1],
+        kontor: "A-2",
+        epost: "danieldidrikson@hiof.no",
+        kursansvar: ""    
+    },
+    {
+        fornavn: "Silje",
+        etternavn: "Sulfat",
+        stilling: stillinger[1],
+        kontor: "A-3",
+        epost: "siljesulfat@hiof.no",
+        kursansvar: ""    
+    },
+    {
+        fornavn: "Vidar",
+        etternavn: "Veihjelp",
+        stilling: stillinger[3],
+        kontor: "B-1",
+        epost: "vidarveihjelp@hiof.no",
+        kursansvar: ""    
+    },
+    {
+        fornavn: "Ørjan",
+        etternavn: "Øy",
+        stilling: stillinger[3],
+        kontor: "B-2",
+        epost: "ørjanøy@hiof.no",
+        kursansvar: ""    
+    },
+    {
+        fornavn: "Lisbeth",
+        etternavn: "Petersen",
+        stilling: stillinger[3],
+        kontor: "B-3",
+        epost: "lisbethpetersen@hiof.no",
+        kursansvar: ""    
+    },
+    {
+        fornavn: "Stine",
+        etternavn: "Sørensen",
+        stilling: stillinger[0],
+        kontor: "C-1",
+        epost: "stinesørensen@hiof.no",
+        kursansvar: "Kunstig intelligens, Maskinlæring"    
+    },
+    {
+        fornavn: "Ådmund",
+        etternavn: "Ernst",
+        stilling: stillinger[0],
+        kontor: "C-2",
+        epost: "ådmundernst@hiof.no",
+        kursansvar: "Programmering 1, Webutvikling"    
+    },
+    {
+        fornavn: "Geir",
+        etternavn: "Spøksom",
+        stilling: stillinger[0],
+        kontor: "C-3",
+        epost: "geirspøksom@hiof.no",
+        kursansvar: "Operativsystemer, Databaser"    
+    },
+    {
+        fornavn: "Ingrid",
+        etternavn: "Isbjørn",
+        stilling: stillinger[0],
+        kontor: "C-4",
+        epost: "ingridisbjørn@hiof.no",
+        kursansvar: "Programmering 1"    
+    },
+    {
+        fornavn: "Emily",
+        etternavn: "Smith",
+        stilling: stillinger[0],
+        kontor: "C-5",
+        epost: "emilysmith@hiof.no",
+        kursansvar: "Innføring i programmering"    
+    },
+    {
+        fornavn: "Kåre",
+        etternavn: "Kar",
+        stilling: stillinger[4],
+        kontor: "C-6",
+        epost: "kårekar@hiof.no",
+        kursansvar: "Innføring i webdesign"    
+    },
+    {
+        fornavn: "Samuel",
+        etternavn: "Sørensen",
+        stilling: stillinger[4],
+        kontor: "C-7",
+        epost: "samuelsørensen@hiof.no",
+        kursansvar: "Sosialpedagogisk arbeid"    
+    },
+    {
+        fornavn: "Jenny",
+        etternavn: "Johnsen",
+        stilling: stillinger[4],
+        kontor: "C-8",
+        epost: "jennyjohnsen@hiof.no",
+        kursansvar: "Vernepleierprofesjon og kunnskap"    
+    },
+    {
+        fornavn: "John",
+        etternavn: "Brøytebrud",
+        stilling: stillinger[4],
+        kontor: "C-9",
+        epost: "johnbrøytebrud@hiof.no",
+        kursansvar: "Innføring i miljøarbeid"    
+    },
+    {
+        fornavn: "Alex",
+        etternavn: "Eik",
+        stilling: stillinger[4],
+        kontor: "C-10",
+        epost: "alexeik@hiof.no",
+        kursansvar: "Fysisk helse"    
+    },
+    {
+        fornavn: "Harry",
+        etternavn: "Potar",
+        stilling: stillinger[4],
+        kontor: "C-11",
+        epost: "harrypotar@hiof.no",
+        kursansvar: "Psykisk helsearbeid og saksbehandling"    
+    },
+    {
+        fornavn: "Kevin",
+        etternavn: "Sæter",
+        stilling: stillinger[4],
+        kontor: "C-12",
+        epost: "kevinsæter@hiof.no",
+        kursansvar: "Juridiske og samfunnsvitenskapelige emner"    
+    },
+    {
+        fornavn: "Petter",
+        etternavn: "Per",
+        stilling: stillinger[4],
+        kontor: "C-13",
+        epost: "petterper@hiof.no",
+        kursansvar: "Psykisk helse"    
+    },
+    {
+        fornavn: "Sara",
+        etternavn: "Smith",
+        stilling: stillinger[4],
+        kontor: "C-14",
+        epost: "sarasmith@hiof.no",
+        kursansvar: "Sykepleie og helse"    
+    },
+    {
+        fornavn: "Line",
+        etternavn: "Fisk",
+        stilling: stillinger[4],
+        kontor: "C-15",
+        epost: "linefisk@hiof.no",
+        kursansvar: "Fysiologi"    
     }
     ]
+   
+    const printButton = document.getElementById("visAnsatt")
+    const liste = document.getElementById("utskrift")
+    const kursPrint = document.getElementById("kursPrint")
+    
 
-    ansatte.push({
-        navn: "Augvind a",
-        stilling: stillinger[2],
-        kontor: "A21-B"   
-    })
+    // liste.innerHTML += `<ul><li>${valgtAnsatt.fornavn} ${valgtAnsatt.etternavn}</li><li>Stilling: ${valgtAnsatt.stilling}</li><li>Kontor: ${valgtAnsatt.kontor}</li><li>E-post: ${valgtAnsatt.epost}</li><li>${valgtAnsatt.kursansvar}</li>`
 
-    function filterAnsatte(stillingindex){
-        const targetStilling = stillinger[stillingindex]
-        const filtrertAnsatt = ansatte.filter(ansatt => ansatt.stilling === stillinger[stillingindex])
-        if (filtrertAnsatt.length === 0){
-            return "Bruh"
-        }else return filtrertAnsatt
+
+    //Funksjoner
+    //1 Skrive ut ansatt basert på indeks til html - funksjon 2 skal kalle på denne for å skrive ut flere
+    
+
+
+    function printAnsatt(indeks){
+    const valgtAnsatt = ansatte[indeks]
+   
+        return `<ul><li>${valgtAnsatt.fornavn} ${valgtAnsatt.etternavn}</li><li>Stilling: ${valgtAnsatt.stilling}</li><li>Kontor: ${valgtAnsatt.kontor}</li><li>E-post: ${valgtAnsatt.epost}</li><li>${valgtAnsatt.kursansvar}</li></ul>`
     }
 
+    
+    //2 Skrive ut alle ansatte sin html struktur med å bruke funksjon 1
+
+    function printAll(){
+        
+        console.log("Viser alle ansatte")
+        liste.innerHTML = ""
+        for(let teller = 0; teller < ansatte.length; teller++){
+            liste.innerHTML += printAnsatt(teller)
+        }
+        return
+    }
+
+    //3 Tar imot en parameter som angir stilling og filtrerer ansatte på den insette parameteren og skriver ut i listen.
+
+    function printStilling(input){
+        const filtrertListe = ansatte.filter((ansatt) => ansatt.stilling === input )
+        liste.innerHTML = ""
+        for(let teller = 0; teller < filtrertListe.length; teller++){
+            liste.innerHTML += `<ul><li>${filtrertListe[teller].fornavn} ${filtrertListe[teller].etternavn}</li><li>Stilling: ${filtrertListe[teller].stilling}</li><li>Kontor: ${filtrertListe[teller].kontor}</li><li>E-post: ${filtrertListe[teller].epost}</li><li>${filtrertListe[teller].kursansvar}</li></ul>`
+        }
+    }
+
+    //4 Returnere alle kurs fra kursansvar og lage en liste som skrives ut på nettsiden
+    const emneliste = document.getElementById("emneList")
+    function printKurs(){
+        
+        const filtrert = []
+
+        ansatte.forEach(ansatt =>{
+        const enkeltKurs = ansatt.kursansvar.split(",").map(kurs => kurs.trim())
+        enkeltKurs.forEach(kurs => {
+            if(filtrert.includes(kurs) || kurs.length === 0){
+            } else {
+                filtrert.push(kurs)
+            }
+        })})
+        
+        
+        emneliste.innerHTML = filtrert.map(filtrert => `<li>${filtrert}</li>`).join(``)
+        
+    }
+
+
+    
+
+    //5 Filtrere ut alle undervisere og vis kun undervisere (professorer og lektorer)
+
+    //6 Filtrere ut administrasjonen (Rektor, Dekan, Vaktmester) Gjør det motsatte av funksjon 5
+
+    //7 Tar imot parameter for all informasjon om 1 underviser og legge til den nye underviseren i registeret
+
+    //8 Tar imot en parameter som gjenkjenner en person i registeret og sletter den
+
+    
+    printButton.addEventListener("click", () => {
+        printAll()})
     </script>
 </body>
 </html>
